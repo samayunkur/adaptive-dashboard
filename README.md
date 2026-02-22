@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Adaptive Dashboard
 
-## Getting Started
+OpenClawエージェントが会話に応じて動的に構築・編集するパーソナルダッシュボード。
 
-First, run the development server:
+## 特徴
+
+- 🤖 **エージェント駆動**: OpenClawエージェントが会話から自動でダッシュボードを更新
+- 📊 **プリセットウィジェット**: 9種類の事前定義ウィジェット（日記、ヒートマップ、カウンターなど）
+- 📁 **Git管理可能**: すべてのデータはJSON/Markdown形式で保存
+- 🎨 **一貫性のあるUI**: Tailwind CSS + Next.js 15で構築
+- 🔄 **リアルタイム更新**: ファイル変更で自動リロード
+
+## セットアップ
+
+### 1. インストール
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/adaptive-dashboard.git
+cd adaptive-dashboard
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. 開発サーバー起動
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ブラウザで http://localhost:3000 を開く。
 
-## Learn More
+## OpenClawとの連携
 
-To learn more about Next.js, take a look at the following resources:
+### TOOLS.mdに追加
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+OpenClawエージェントがダッシュボードを操作できるようにするため、`~/.openclaw/workspace/TOOLS.md` に以下を追加：
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```markdown
+### Adaptive Dashboard
 
-## Deploy on Vercel
+- **プロジェクトパス**: `/home/developer/projects/adaptive-dashboard`
+- **編集対象**: `data/layout.json`, `data/**/*.{json,md}`
+- **dev server**: `http://localhost:3000`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### 会話からの自動更新
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ユーザーが日常の出来事・目標・記録を話したら：
+1. 適切なデータファイルを特定
+2. 該当ファイルを更新（日記追記、カウンター更新など）
+3. 必要なら layout.json を調整
+
+#### データ更新例
+
+- 日記追記: `data/diary/YYYY-MM.md` に追記
+- カウンター更新: `data/counters.json` の該当キーを更新
+- アクティビティ記録: `data/activity.json` に追加
+```
+
+### 使用例
+
+エージェントに以下のように依頼できます：
+
+- 「今日は自転車で50km走った」→ 日記追記 + カウンター更新 + アクティビティ記録
+- 「体重グラフを追加して」→ 新しいChartWidgetを配置
+- 「走行距離のウィジェットを大きくして」→ layout.json でサイズ変更
+
+## データ構造
+
+### `data/layout.json`
+ウィジェットの配置とサイズを定義。
+
+```json
+{
+  "version": "1.0",
+  "grid": { "columns": 12, "rowHeight": 100, "gap": 16 },
+  "widgets": [
+    {
+      "id": "diary-main",
+      "type": "diary",
+      "position": { "x": 0, "y": 0 },
+      "size": { "w": 6, "h": 3 },
+      "config": { "title": "日記", "dataPath": "data/diary" }
+    }
+  ]
+}
+```
+
+### `data/diary/YYYY-MM.md`
+月ごとのMarkdown形式の日記。
+
+### `data/counters.json`
+カウンター値を保存。
+
+```json
+{
+  "bike_km_feb": { "value": 160, "updatedAt": "2026-02-21" }
+}
+```
+
+### `data/activity.json`
+GitHub grass風のアクティビティデータ。
+
+```json
+{
+  "activities": [
+    { "date": "2026-02-21", "count": 15, "type": "commit" }
+  ]
+}
+```
+
+## ウィジェット一覧（Phase 1 MVP）
+
+### 実装済み
+
+- ✅ **DiaryWidget**: Markdown形式の日記表示
+- ✅ **CounterWidget**: 数値カウンター
+- ✅ **HeatmapWidget**: GitHub grass風ヒートマップ
+
+### 今後実装予定
+
+- ⏳ **MilestoneWidget**: マイルストーン進捗
+- ⏳ **ChartWidget**: グラフ表示（折れ線/棒/円）
+- ⏳ **TodoWidget**: TODO管理
+- ⏳ **MarkdownWidget**: 汎用Markdownレンダラー
+- ⏳ **TimelineWidget**: タイムライン
+- ⏳ **ImageGalleryWidget**: 画像ギャラリー
+
+## 技術スタック
+
+- **Framework**: Next.js 15 (App Router)
+- **UI**: Tailwind CSS
+- **グリッド**: react-grid-layout
+- **チャート**: recharts (今後)
+- **Markdown**: react-markdown
+- **言語**: TypeScript
+
+## 開発
+
+### ディレクトリ構造
+
+```
+adaptive-dashboard/
+├── app/               # Next.js App Router
+├── components/        # Reactコンポーネント
+│   └── widgets/      # ウィジェット
+├── lib/              # ユーティリティ・型定義
+└── data/             # データファイル（Git管理）
+```
+
+### 新しいウィジェットの追加
+
+1. `components/widgets/YourWidget.tsx` を作成
+2. `components/DashboardGrid.tsx` の `widgetComponents` に登録
+3. `lib/types.ts` に型を追加（必要に応じて）
+
+## ライセンス
+
+MIT
+
+## 作者
+
+Created with ❤️ by OpenClaw Agent (クロア)

@@ -1,0 +1,18 @@
+{
+  "activities": [
+    { "date": "2026-02-21", "count": 15, "type": "commit" },
+    { "date": "2026-02-21", "count": 160, "type": "bike_km" },
+    { "date": "2026-02-20", "count": 8, "type": "commit" },
+    { "date": "2026-02-20", "count": 45, "type": "bike_km" },
+    { "date": "2026-02-19", "count": 12, "type": "commit" },
+    { "date": "2026-02-18", "count": 3, "type": "commit" },
+    { "date": "2026-02-17", "count": 7, "type": "commit" },
+    { "date": "2026-02-16", "count": 5, "type": "commit" },
+    { "date": "2026-02-15", "count": 10, "type": "commit" },
+    { "date": "2026-02-14", "count": 6, "type": "commit" },
+    { "date": "2026-02-13", "count": 4, "type": "commit" },
+    { "date": "2026-02-12", "count": 8, "type": "commit" },
+    { "date": "2026-02-11", "count": 2, "type": "commit" },
+    { "date": "2026-02-10", "count": 9, "type": "commit" }
+  ]
+}

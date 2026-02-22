@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "grid": {
+    "columns": 12,
+    "rowHeight": 100,
+    "gap": 16
+  },
+  "widgets": [
+    {
+      "id": "diary-main",
+      "type": "diary",
+      "position": { "x": 0, "y": 0 },
+      "size": { "w": 6, "h": 3 },
+      "config": {
+        "title": "日記",
+        "dataPath": "data/diary",
+        "displayMode": "latest"
+      }
+    },
+    {
+      "id": "activity-heatmap",
+      "type": "heatmap",
+      "position": { "x": 6, "y": 0 },
+      "size": { "w": 6, "h": 3 },
+      "config": {
+        "title": "Activity",
+        "dataPath": "data/activity.json",
+        "colorScheme": "green"
+      }
+    },
+    {
+      "id": "bike-counter",
+      "type": "counter",
+      "position": { "x": 0, "y": 3 },
+      "size": { "w": 3, "h": 2 },
+      "config": {
+        "title": "今月の走行距離",
+        "dataPath": "data/counters.json",
+        "key": "bike_km_feb",
+        "unit": "km",
+        "color": "blue"
+      }
+    }
+  ]
+}
