@@ -9,6 +9,10 @@ import 'react-grid-layout/css/styles.css';
 import DiaryWidget from './widgets/DiaryWidget';
 import CounterWidget from './widgets/CounterWidget';
 import HeatmapWidget from './widgets/HeatmapWidget';
+import MilestoneWidget from './widgets/MilestoneWidget';
+import TodoWidget from './widgets/TodoWidget';
+import ChartWidget from './widgets/ChartWidget';
+import MarkdownWidget from './widgets/MarkdownWidget';
 
 interface DashboardGridProps {
   widgets: Widget[];
@@ -21,7 +25,10 @@ const widgetComponents: Record<string, React.ComponentType<any>> = {
   diary: DiaryWidget,
   counter: CounterWidget,
   heatmap: HeatmapWidget,
-  // 他のウィジェットは後で追加
+  milestone: MilestoneWidget,
+  todo: TodoWidget,
+  chart: ChartWidget,
+  markdown: MarkdownWidget,
 };
 
 export default function DashboardGrid({ widgets, columns, rowHeight, gap }: DashboardGridProps) {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { loadDiary, loadActivities, loadCounters } from '@/lib/data-loader';
+import { loadDiary, loadActivities, loadCounters, loadMilestones, loadTodos, loadChart, loadMarkdown } from '@/lib/data-loader';
 import { getCurrentYearMonth } from '@/lib/utils';
 
 export async function GET(request: NextRequest) {
@@ -35,6 +35,36 @@ export async function GET(request: NextRequest) {
         const counters = await loadCounters();
         const counter = counters[key];
         return NextResponse.json({ value: counter?.value || 0 });
+      }
+
+      case 'milestones': {
+        const milestones = await loadMilestones();
+        return NextResponse.json({ milestones });
+      }
+
+      case 'todos': {
+        const todos = await loadTodos();
+        return NextResponse.json({ todos });
+      }
+
+      case 'chart': {
+        if (!path) {
+          return NextResponse.json({ error: 'Chart path required' }, { status: 400 });
+        }
+        const filename = path.split('/').pop() || '';
+        const chartData = await loadChart(filename);
+        if (!chartData) {
+          return NextResponse.json({ error: 'Chart not found' }, { status: 404 });
+        }
+        return NextResponse.json(chartData);
+      }
+
+      case 'markdown': {
+        if (!path) {
+          return NextResponse.json({ error: 'Markdown path required' }, { status: 400 });
+        }
+        const content = await loadMarkdown(path);
+        return NextResponse.json({ content });
       }
 
       default:

@@ -40,6 +40,39 @@
         "unit": "km",
         "color": "blue"
       }
+    },
+    {
+      "id": "milestones",
+      "type": "milestone",
+      "position": { "x": 3, "y": 3 },
+      "size": { "w": 5, "h": 3 },
+      "config": {
+        "title": "マイルストーン",
+        "dataPath": "data/milestones.json",
+        "filter": "all"
+      }
+    },
+    {
+      "id": "todos",
+      "type": "todo",
+      "position": { "x": 8, "y": 3 },
+      "size": { "w": 4, "h": 3 },
+      "config": {
+        "title": "TODO",
+        "dataPath": "data/todos.json",
+        "filter": "all"
+      }
+    },
+    {
+      "id": "weight-chart",
+      "type": "chart",
+      "position": { "x": 0, "y": 6 },
+      "size": { "w": 6, "h": 3 },
+      "config": {
+        "title": "体重推移",
+        "dataPath": "data/charts/weight.json",
+        "chartType": "line"
+      }
     }
   ]
 }

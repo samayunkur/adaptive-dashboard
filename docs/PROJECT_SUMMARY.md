@@ -61,12 +61,12 @@
 
 ---
 
-## Phase 2: 拡張ウィジェット（未実装）
+## Phase 2: 拡張ウィジェット（✅ 完了）
 
-- [ ] MilestoneWidget
-- [ ] ChartWidget（rechartsインストール済み）
-- [ ] TodoWidget
-- [ ] MarkdownWidget
+- [x] **MilestoneWidget** - マイルストーン進捗管理
+- [x] **ChartWidget** - recharts使用（折れ線/棒/円グラフ）
+- [x] **TodoWidget** - TODO管理（完了/未完了フィルター）
+- [x] **MarkdownWidget** - 汎用Markdownファイル表示
 
 ---
 

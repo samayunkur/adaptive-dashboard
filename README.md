@@ -107,21 +107,21 @@ GitHub grass風のアクティビティデータ。
 }
 ```
 
-## ウィジェット一覧（Phase 1 MVP）
+## ウィジェット一覧
 
-### 実装済み
+### Phase 1 & 2 実装済み
 
 - ✅ **DiaryWidget**: Markdown形式の日記表示
 - ✅ **CounterWidget**: 数値カウンター
 - ✅ **HeatmapWidget**: GitHub grass風ヒートマップ
+- ✅ **MilestoneWidget**: マイルストーン進捗管理
+- ✅ **ChartWidget**: グラフ表示（折れ線/棒/円）
+- ✅ **TodoWidget**: TODO管理
+- ✅ **MarkdownWidget**: 汎用Markdownレンダラー
 
-### 今後実装予定
+### Phase 3 実装予定
 
-- ⏳ **MilestoneWidget**: マイルストーン進捗
-- ⏳ **ChartWidget**: グラフ表示（折れ線/棒/円）
-- ⏳ **TodoWidget**: TODO管理
-- ⏳ **MarkdownWidget**: 汎用Markdownレンダラー
-- ⏳ **TimelineWidget**: タイムライン
+- ⏳ **TimelineWidget**: タイムライン表示
 - ⏳ **ImageGalleryWidget**: 画像ギャラリー
 
 ## 技術スタック

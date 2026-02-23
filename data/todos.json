@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": "t1",
+      "text": "Phase 2ウィジェットを全て実装",
+      "done": false,
+      "createdAt": "2026-02-22"
+    },
+    {
+      "id": "t2",
+      "text": "ドキュメントを更新",
+      "done": false,
+      "createdAt": "2026-02-22"
+    },
+    {
+      "id": "t3",
+      "text": "Phase 1 MVP完成",
+      "done": true,
+      "createdAt": "2026-02-21"
+    }
+  ]
+}

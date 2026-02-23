@@ -81,3 +81,12 @@ export async function loadChart(filename: string): Promise<ChartData | null> {
     return null;
   }
 }
+
+export async function loadMarkdown(filePath: string): Promise<string> {
+  try {
+    const fullPath = path.join(DATA_DIR, filePath);
+    return await fs.readFile(fullPath, 'utf-8');
+  } catch (error) {
+    return 'ファイルが見つかりません。';
+  }
+}
