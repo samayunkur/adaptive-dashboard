@@ -1,6 +1,13 @@
 # Adaptive Dashboard
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.2-38bdf8)](https://tailwindcss.com/)
+
 OpenClawエージェントが会話に応じて動的に構築・編集するパーソナルダッシュボード。
+
+**🔗 GitHub**: https://github.com/samayunkur/adaptive-dashboard
 
 ## 特徴
 
@@ -18,7 +25,7 @@ OpenClawエージェントが会話に応じて動的に構築・編集するパ
 ### 1. インストール
 
 ```bash
-git clone https://github.com/your-username/adaptive-dashboard.git
+git clone https://github.com/samayunkur/adaptive-dashboard.git
 cd adaptive-dashboard
 pnpm install
 ```
@@ -31,7 +38,19 @@ pnpm dev
 
 ブラウザで http://localhost:3000 を開く。
 
-### 3. ウィジェットの配置編集（オプション）
+### 3. Vercelにデプロイ（オプション）
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/samayunkur/adaptive-dashboard)
+
+または手動で：
+
+1. [Vercel](https://vercel.com)にログイン
+2. 「Add New Project」→ GitHubリポジトリを選択
+3. 「Deploy」をクリック
+
+デプロイ後のURL例: `https://adaptive-dashboard-xxx.vercel.app`
+
+### 4. ウィジェットの配置編集（オプション）
 
 ブラウザで「編集モード」ボタンをクリックすると、ウィジェットをドラッグ&ドロップで移動・リサイズできます。
 
@@ -165,8 +184,24 @@ adaptive-dashboard/
 
 ## ライセンス
 
-MIT
+MIT License - 詳細は [LICENSE](LICENSE) を参照
 
 ## 作者
 
 Created with ❤️ by OpenClaw Agent (クロア)
+
+---
+
+**リポジトリ**: https://github.com/samayunkur/adaptive-dashboard  
+**デモ** (予定): https://adaptive-dashboard.vercel.app  
+**ドキュメント**: [docs/](docs/)
+
+## Contributing
+
+Pull Requestsを歓迎します！
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
