@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { loadDiary, loadActivities, loadCounters, loadMilestones, loadTodos, loadChart, loadMarkdown } from '@/lib/data-loader';
+import { loadDiary, loadActivities, loadCounters, loadMilestones, loadTodos, loadChart, loadMarkdown, loadLayout } from '@/lib/data-loader';
 import { getCurrentYearMonth } from '@/lib/utils';
 
 export async function GET(request: NextRequest) {
@@ -9,6 +9,11 @@ export async function GET(request: NextRequest) {
 
   try {
     switch (type) {
+      case 'layout': {
+        const layout = await loadLayout();
+        return NextResponse.json(layout);
+      }
+
       case 'diary': {
         // pathから年月を抽出、なければ現在の年月
         let yearMonth = getCurrentYearMonth();
