@@ -3,13 +3,13 @@
     {
       "id": "t1",
       "text": "Phase 2ウィジェットを全て実装",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-22"
     },
     {
       "id": "t2",
       "text": "ドキュメントを更新",
-      "done": false,
+      "done": true,
       "createdAt": "2026-02-22"
     },
     {
@@ -17,6 +17,18 @@
       "text": "Phase 1 MVP完成",
       "done": true,
       "createdAt": "2026-02-21"
+    },
+    {
+      "id": "t4",
+      "text": "Phase 3 UX改善実装",
+      "done": true,
+      "createdAt": "2026-02-23"
+    },
+    {
+      "id": "t5",
+      "text": "GitHubに公開",
+      "done": true,
+      "createdAt": "2026-02-23"
     }
   ]
 }

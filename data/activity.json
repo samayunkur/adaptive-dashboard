@@ -1,6 +1,8 @@
 {
   "activities": [
-    { "date": "2026-02-21", "count": 15, "type": "commit" },
+    { "date": "2026-02-23", "count": 4, "type": "commit" },
+    { "date": "2026-02-22", "count": 3, "type": "commit" },
+    { "date": "2026-02-21", "count": 2, "type": "commit" },
     { "date": "2026-02-21", "count": 160, "type": "bike_km" },
     { "date": "2026-02-20", "count": 8, "type": "commit" },
     { "date": "2026-02-20", "count": 45, "type": "bike_km" },

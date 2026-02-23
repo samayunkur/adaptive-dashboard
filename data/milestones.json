@@ -4,8 +4,8 @@
       "id": "m1",
       "title": "Adaptive Dashboard v1.0 完成",
       "description": "動的ダッシュボードのプロトタイプ完成",
-      "status": "in-progress",
-      "progress": 60,
+      "status": "completed",
+      "progress": 100,
       "dueDate": "2026-03-01",
       "createdAt": "2026-02-21"
     },
@@ -13,8 +13,8 @@
       "id": "m2",
       "title": "Phase 2 ウィジェット実装",
       "description": "Milestone, Chart, Todo, Markdownウィジェット追加",
-      "status": "in-progress",
-      "progress": 0,
+      "status": "completed",
+      "progress": 100,
       "dueDate": "2026-02-25",
       "createdAt": "2026-02-22"
     },
@@ -22,8 +22,8 @@
       "id": "m3",
       "title": "GitHubリポジトリ公開",
       "description": "オープンソースとして公開",
-      "status": "not-started",
-      "progress": 0,
+      "status": "completed",
+      "progress": 100,
       "dueDate": "2026-03-10",
       "createdAt": "2026-02-22"
     }
