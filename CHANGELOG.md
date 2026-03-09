@@ -2,6 +2,24 @@
 
 ## [Unreleased]
 
+### Phase 3.7 - 2025-02-23
+
+#### Added
+- **統合デプロイメント**: OpenClawと同じコンテナ内で動作する構成
+  - supervisord設定追加
+  - 1つのコンテナでOpenClaw + ダッシュボードを管理
+  - ネットワーク設定不要、シンプルな構成
+- **リアルタイム更新フック**: `lib/use-realtime.ts`追加
+  - SWRを使用した3秒ごとの自動更新
+  - カウンター、アクティビティ、TODO、マイルストーン用フック
+- **OpenClaw統合ガイド**: 詳細な統合手順を文書化
+  - 分離型（Dockerネットワーク使用）
+  - 統合型（同じコンテナ内）
+
+#### Changed
+- API: GET /api/data でクエリパラメータ対応
+- README.md: OpenClaw統合の説明を追加
+
 ### Phase 3.6 - 2025-02-23
 
 #### Added
