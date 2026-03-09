@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  # Development environment
+  adaptive-dashboard-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: adaptive-dashboard-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount source code for hot reload
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+      # Persist data directory
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=development
+      # Internal Docker network URL (for OpenClaw container)
+      - NEXT_PUBLIC_API_URL=http://adaptive-dashboard-dev:3000
+    networks:
+      - openclaw-network
+    labels:
+      - "com.openclaw.service=dashboard"
+      - "com.openclaw.description=Adaptive Dashboard for OpenClaw"
+
+  # Production environment
+  adaptive-dashboard-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: adaptive-dashboard-prod
+    ports:
+      - "3000:3000"
+    volumes:
+      # Persist data directory
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      # Internal Docker network URL (for OpenClaw container)
+      - NEXT_PUBLIC_API_URL=http://adaptive-dashboard-prod:3000
+    networks:
+      - openclaw-network
+    restart: unless-stopped
+    labels:
+      - "com.openclaw.service=dashboard"
+      - "com.openclaw.description=Adaptive Dashboard for OpenClaw"
+
+networks:
+  openclaw-network:
+    external: true
+    name: openclaw-network

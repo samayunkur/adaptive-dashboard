@@ -192,10 +192,37 @@ async function handleLayout(action: string, data: any) {
   }
 }
 
-// GET: 全データ取得
-export async function GET() {
+// GET: データ取得（クエリパラメータ対応）
+export async function GET(request: NextRequest) {
   await ensureInitialized();
   
+  const { searchParams } = new URL(request.url);
+  const type = searchParams.get('type');
+  const action = searchParams.get('action');
+
+  // 特定のデータタイプが指定された場合
+  if (type && action === 'get') {
+    switch (type) {
+      case 'counter':
+        return NextResponse.json(getCountersDB().data);
+      case 'activity':
+        const actType = searchParams.get('data[type]');
+        const activities = actType
+          ? getActivityDB().data.activities.filter((a) => a.type === actType)
+          : getActivityDB().data.activities;
+        return NextResponse.json(activities);
+      case 'milestone':
+        return NextResponse.json(getMilestonesDB().data.milestones);
+      case 'todo':
+        return NextResponse.json(getTodosDB().data.todos);
+      case 'layout':
+        return NextResponse.json(getLayoutDB().data);
+      default:
+        return NextResponse.json({ error: 'Invalid type' }, { status: 400 });
+    }
+  }
+  
+  // 全データを返す
   return NextResponse.json({
     counters: getCountersDB().data,
     activities: getActivityDB().data.activities,
