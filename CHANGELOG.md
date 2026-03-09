@@ -2,6 +2,49 @@
 
 ## [Unreleased]
 
+### Phase 3.6 - 2025-02-23
+
+#### Added
+- **Docker対応**: 本格的なDockerデプロイメントサポート
+  - Dockerfile（本番用マルチステージビルド）
+  - Dockerfile.dev（開発用）
+  - docker-compose.yml（開発・本番環境）
+  - .dockerignore
+- **環境変数サポート**: .env.example追加
+  - NEXT_PUBLIC_API_URLで外部アクセス対応
+  - 外部データベース接続設定
+- **APIクライアント**: lib/api-client.ts追加
+  - 環境変数からのURL自動取得
+  - 統一的なAPI呼び出しヘルパー
+- **standalone出力**: next.config.tsで有効化
+- **ドキュメント更新**: Docker使用方法を追加
+
+#### Changed
+- README.md - Docker使用方法を追加（推奨方法に変更）
+- docs/SETUP_GUIDE.md - Docker環境の詳細説明を追加
+- next.config.ts - standalone出力とホスト設定を追加
+
+### Phase 3.5 - 2025-02-23
+
+#### Added
+- **LowDB統合**: JSONファイルベースの軽量データベース導入
+  - アトミック書き込みによる競合防止
+  - インメモリキャッシュによる高速化
+  - 型安全なデータアクセス
+- **RESTful API**: `/api/data` エンドポイント
+  - カウンター: update, increment, get
+  - アクティビティ: add, get
+  - マイルストーン: add, update, delete, get
+  - TODO: add, toggle, delete, get
+  - レイアウト: update, addWidget, removeWidget, get
+- **日記API**: `/api/diary` エンドポイント
+  - 日記の追記と取得
+
+#### Changed
+- `lib/db.ts` - LowDBラッパー実装
+- `lib/data-loader.ts` - LowDB使用に変更
+- README.md - LowDBを技術スタックに追加
+
 ### Phase 3 - 2026-02-23
 
 #### Added

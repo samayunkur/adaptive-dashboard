@@ -22,23 +22,43 @@ OpenClawエージェントが会話に応じて動的に構築・編集するパ
 
 ## セットアップ
 
-### 1. インストール
+### 方法1: Docker使用（推奨）
+
+#### 開発環境
+
+```bash
+# リポジトリをクローン
+git clone https://github.com/samayunkur/adaptive-dashboard.git
+cd adaptive-dashboard
+
+# 環境変数を設定（オプション）
+cp .env.example .env
+
+# Docker Composeで起動
+docker-compose up adaptive-dashboard-dev
+```
+
+ブラウザで http://localhost:3000 を開く。
+
+#### 本番環境
+
+```bash
+# 本番用コンテナをビルド・起動
+docker-compose up adaptive-dashboard-prod
+```
+
+### 方法2: ローカルインストール
 
 ```bash
 git clone https://github.com/samayunkur/adaptive-dashboard.git
 cd adaptive-dashboard
 pnpm install
-```
-
-### 2. 開発サーバー起動
-
-```bash
 pnpm dev
 ```
 
 ブラウザで http://localhost:3000 を開く。
 
-### 3. Vercelにデプロイ（オプション）
+### 方法3: Vercelにデプロイ
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/samayunkur/adaptive-dashboard)
 
@@ -161,7 +181,30 @@ GitHub grass風のアクティビティデータ。
 - **グリッド**: react-grid-layout
 - **チャート**: recharts (今後)
 - **Markdown**: react-markdown
+- **データベース**: LowDB (JSONファイルベース)
+- **デプロイ**: Docker / Vercel対応
 - **言語**: TypeScript
+
+## 🐳 Docker使用方法
+
+### 開発環境
+```bash
+docker-compose up adaptive-dashboard-dev
+```
+
+### 本番環境
+```bash
+docker-compose up adaptive-dashboard-prod
+```
+
+### 外部アクセス設定
+
+`.env` ファイルで設定：
+```env
+NEXT_PUBLIC_API_URL=https://your-domain.com
+```
+
+詳細は [SETUP_GUIDE.md](docs/SETUP_GUIDE.md) を参照。
 
 ## 開発
 

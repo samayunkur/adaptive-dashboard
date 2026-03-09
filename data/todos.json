@@ -29,6 +29,12 @@
       "text": "GitHubに公開",
       "done": true,
       "createdAt": "2026-02-23"
+    },
+    {
+      "id": "t1773041618504",
+      "text": "LowDB導入完了",
+      "done": false,
+      "createdAt": "2026-03-09"
     }
   ]
 }
